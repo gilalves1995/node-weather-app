@@ -9,6 +9,7 @@ console.log(__dirname);
 console.log(path.join(__dirname, '../templates'));
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public');
@@ -102,16 +103,30 @@ app.get('*', (req, res) => {
 });
 
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.');
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}.`);
 });
 
 
+/* Heroku */
 
-// 1 domain (app.com), 1 single express server, multiple routes
-// app.com
-// app.com/help
-// app.com/about
+/*
+* Create an Heroku project:
+*
+* First, add the SSH key to protect the connection between our laptop and Heroku servers: type in the terminal "heroku keys:add" to search the ~/.ssh directory
+* Second, the command "heroku create gilalves-name-of-the-project" from the main directory (WeatherApp) to create the new project
+
+*
+* To setup Heroku one must do the following:
+*
+* First: configure package.json to contain a script "start": "node src/app.js" so that Heroku knows how to run the app
+* Second: in src/app.js change the port of the server to process.env.PORT || 3000 - will work both in heroku and in localhost
+* Third: in public/js/app.js change remove the url http://localhost:3000 and leave the relative path to the resource
+* */
+
+
+
+
 
 
 // __dirname is the full path where the script lives and __filename is the full path to the file
