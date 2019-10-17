@@ -108,7 +108,7 @@ app.listen(port, () => {
 });
 
 
-/* Heroku */
+/* HEROKU */
 
 /*
 * Create an Heroku project:
@@ -122,6 +122,11 @@ app.listen(port, () => {
 * First: configure package.json to contain a script "start": "node src/app.js" so that Heroku knows how to run the app
 * Second: in src/app.js change the port of the server to process.env.PORT || 3000 - will work both in heroku and in localhost
 * Third: in public/js/app.js change remove the url http://localhost:3000 and leave the relative path to the resource
+*
+*
+* Run "git push" to push changes to github
+* Run "git push heroku master" to deploy the application
+*
 * */
 
 
